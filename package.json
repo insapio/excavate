@@ -1,0 +1,12 @@
+{
+  "name": "excavate",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "git@github.com:insapio/excavate.git",
+  "author": "Alexander Templeton <blakmatr@gmail.com>",
+  "license": "GNU AGPL v3",
+  "type": "module",
+  "dependencies": {
+    "aws-sdk": "^2.556.0"
+  }
+}
