@@ -26,7 +26,17 @@ import (
 // 🎉 Sprint 0 || pull relevant data for First Check
 // Sprint 1 || ^^ pull test config from API
 // Sprint 2 || ^^ pull test config from API (for specific user)
-// Sprint 1 || perform transforms/analyses (print)
+// 👉 Sprint 1 || perform transforms/analyses (print)
+/*
+	- Check for tag signifying there is an exception for this
+	- Get number of secondary IPs for this ENI
+	- Get SG for ENI
+		if - check if this is an EKS ENI SG
+			- If so, get EKS cluster details
+				- Check EKS cluster for exception tags
+					- 🙅‍ submit recommmendation to set KEEP_WARM_TARGET on this cluster
+
+*/
 // Sprint 2 || ^^ pull transforms/analyses from API based on config (print)
 // Sprint 2 || post results to API for UI display
 // Sprint 2 || create API
