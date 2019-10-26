@@ -7,6 +7,8 @@ import (
 	"github.com/aws/aws-sdk-go/aws/awserr"
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/ec2"
+
+	"./excess_enis/enis"
 )
 
 // Uploads a file to S3 given a bucket and object key. Also takes a duration
@@ -56,26 +58,13 @@ func main() {
 	// Optional aws.Config values can also be provided as variadic arguments
 	// to the New function. This option allows you to provide service
 	// specific configuration.
-	svc := ec2.New(sess, &aws.Config{
+
+	configObject := &aws.Config{
 		Region: aws.String("us-east-1"),
-	})
-
-	input := &ec2.DescribeNetworkInterfacesInput{}
-
-	result, err := svc.DescribeNetworkInterfaces(input)
-	if err != nil {
-		if aerr, ok := err.(awserr.Error); ok {
-			switch aerr.Code() {
-			default:
-				fmt.Println(aerr.Error())
-			}
-		} else {
-			// Print the error, cast err to awserr.Error to get the Code and
-			// Message from an error.
-			fmt.Println(err.Error())
-		}
-		return
 	}
+
+	enis.AnalyzeENIs(sess, configObject)
+
 	/*
 		func ENISecondaryIPs() int {
 			total := 0
@@ -90,5 +79,4 @@ func main() {
 			*result.NetworkInterfaces[0].Groups[0].GroupId)
 	*/
 
-	fmt.Print(result.NetworkInterfaces)
 }
