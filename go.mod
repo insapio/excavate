@@ -2,4 +2,4 @@ module github.com/insapio/excavate
 
 go 1.12
 
-require github.com/aws/aws-sdk-go v1.25.19
+require github.com/aws/aws-sdk-go v1.33.0
